@@ -34,5 +34,6 @@ public class Dipendente {
 
     @Column(name = "avatar")
     private String avatar;
+    private String password;
 
 }

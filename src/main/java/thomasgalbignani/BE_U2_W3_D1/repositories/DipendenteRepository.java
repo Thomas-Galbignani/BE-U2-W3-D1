@@ -15,6 +15,6 @@ public interface DipendenteRepository extends JpaRepository<Dipendente, UUID> {
     boolean existsByEmail(String email);
 
     Optional<Dipendente> findByUsername(String username);
-
+    
     Optional<Dipendente> findByEmail(String email);
 }

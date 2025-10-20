@@ -82,6 +82,10 @@ public class DipendenteService {
         return dipendenteRepository.save(found);
     }
 
+    public Dipendente findDipendenteByEmail(String email) {
+        return this.dipendenteRepository.findByEmail(email)
+                .orElseThrow(() -> new BadRequestException("L'email " + email + " non è stato trovata"));
+    }
 
     public void findByIdAndDelete(UUID id) {
         Dipendente found = findById(id);

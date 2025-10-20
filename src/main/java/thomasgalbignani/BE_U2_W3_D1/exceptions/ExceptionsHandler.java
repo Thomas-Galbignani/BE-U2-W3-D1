@@ -24,6 +24,13 @@ public class ExceptionsHandler {
         return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
     }
 
+
+    @ExceptionHandler(UnauthorizedException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED) // 401
+    public ErrorsDTO handleUnauthorizedException(UnauthorizedException ex) {
+        return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
+    }
+
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND) // 404
     public ErrorsDTO handleNotFound(NotFoundException ex) {
@@ -38,4 +45,6 @@ public class ExceptionsHandler {
         return new ErrorsDTO("C'è stato un errore generico, proveremo a risolvere quanto prima." +
                 " Considerate Pirandello, così è se vi pare!", LocalDateTime.now());
     }
+
+
 }
